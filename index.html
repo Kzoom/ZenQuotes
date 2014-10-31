@@ -1,14 +1,42 @@
 <html>
 <head>
-	<!--  copied from getbootstrap.com  gettiung started-->
+	<!-- Get jQuery, put before bootstrap-->
+	<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+
+
+	<!--  copied from getbootstrap.com  "getting started" page-->
 	<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	<script> 
+    //had to wrap this in a dummy function to make sure
+    //rest of page is ready befaore the function is called
+	  $(function(){
+		  $quoteEl = $('.js-quote');
+		  
+		  renderQuote = function(data) {  //developed on the Chrome F12 console first.
+		  	// alert('renderQuote') 
+		  	//console.log($quoteEl);
+		  	$quoteEl.html(data)
+		  }
+
+		  getQuote = function() {
+		  	$.get('https://api.gethub.com/zen', renderQuote )
+ 		  }
+
+
+	  })
+
+
+
+	</script>
+
 </head>
 
 <body class="container">
